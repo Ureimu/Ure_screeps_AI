@@ -1,1 +1,1 @@
-bpg([{move:5}])
+global.bpg([{move:5}])
