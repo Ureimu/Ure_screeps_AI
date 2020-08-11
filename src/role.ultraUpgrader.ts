@@ -1,7 +1,7 @@
 //TODO 准备设计。流程：1.用强化物强化 2.拿出storage能量（用terminal购买大量能量） 3.升级controller。
-let ckso = require('c_k_screeps_outwards');
+ckso = require('c_k_screeps_outwards');
 
-let roleUltraUpgrader = {
+let roleUltraUpgrader_m = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
@@ -24,7 +24,7 @@ let roleUltraUpgrader = {
                             && i.pos.y == targetLabFlag.pos.y);
                     }
                 });
-                labReturn=lab[0].boostCreep(creep);
+                let labReturn=lab[0].boostCreep(creep);
                 if (labReturn == ERR_NOT_IN_RANGE) {
                     creep.moveTo(lab[0], {
                         visualizePathStyle: {
@@ -104,4 +104,4 @@ let roleUltraUpgrader = {
     }
 };
 
-module.exports = roleUltraUpgrader;
+module.exports = roleUltraUpgrader_m;

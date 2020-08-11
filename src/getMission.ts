@@ -3,7 +3,12 @@
 let getMission = {
     run: function(){
         if(!Memory.getMission){
-            Memory.getMission = {};
+            Memory.getMission = {
+                firstRun: false,
+                ifRun: false,
+                counter:0,
+                string_x: []
+            };
         }
         if(Memory.getMission.ifRun == true){
             if(Memory.getMission.counter == 0){
@@ -16,7 +21,7 @@ let getMission = {
                 Memory.getMission.string_x = [];
                 let missionName = Memory.c_k_info.creepRoleListGivenOutOutwards;
                 for(let m=0,n=missionName.length;m<n;m++){
-                    x=missionName[m];
+                    let x=missionName[m];
                     for(let i=0,j=Memory.creepWorkSetting[x].length;i<j;i++){
                         Memory.getMission.string_x.push(
                             '任务角色:'+x +'\t任务编号：'+i + '\n'

@@ -7,13 +7,13 @@
  * mod.thing == 'a thing'; // true
  */
 
-let tower_sp = {
+let tower_sp_m = {
     defend: function (roomName) {
         let hostiles = Game.rooms[roomName].find(FIND_HOSTILE_CREEPS);
         if (hostiles.length > 0) {
             let username = hostiles[0].owner.username;
             Game.notify(`User ${username} spotted in room ${roomName}`);
-            let towers = Game.rooms[roomName].find(
+            let towers = <StructureTower[]>Game.rooms[roomName].find(
                 FIND_MY_STRUCTURES, {
                     filter: {
                         structureType: STRUCTURE_TOWER
@@ -42,7 +42,7 @@ let tower_sp = {
     },
 
     repair: function (roomName, hits_min) {
-        let towers = Game.rooms[roomName].find(
+        let towers = <StructureTower[]>Game.rooms[roomName].find(
             FIND_MY_STRUCTURES, {
                 filter: {
                     structureType: STRUCTURE_TOWER
@@ -58,4 +58,4 @@ let tower_sp = {
     }
 };
 
-module.exports = tower_sp;
+module.exports = tower_sp_m;

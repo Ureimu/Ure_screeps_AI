@@ -35,6 +35,17 @@ interface claimerSetting {
     logString?: string
 }
 
+interface outwardsEnergyMinerSetting {
+    targetSourceFlag: string,
+    targetContainerFlag: string,
+    spawnName: string,
+    bodyparts: BodyPartConstant,
+    targetRoom: string,
+    spawnNumber: number,
+    ifRun: boolean,
+    logString?: string
+}
+
 interface extraCarrierSetting {
     carryFrom: Id<AnyStoreStructure>,
     carryTo: Id<AnyStoreStructure>,
@@ -47,7 +58,26 @@ interface extraCarrierSetting {
     logString?: string
 }
 
+interface ultraUpgraderSetting {
+    targetSourceFlag: string,
+    targetLabFlag: string,
+    spawnName: string,
+    bodyparts: BodyPartConstant,
+    targetRoom: string,
+    spawnNumber: number,
+    ifRun: boolean,
+    logString?: string
+}
+
+interface getMission {
+    firstRun: boolean,
+    ifRun: boolean,
+    counter: number,
+    string_x: string[],
+}
+
 interface Memory {
+    [x: string]: {};
     creepNum: number,
     reset_time_recorder: any,
     uuid: number,
@@ -73,13 +103,20 @@ interface Memory {
         creepRoleListGivenOutOutwards: string[]
     },
     creepWorkSetting: {
+        refresh: boolean,
         attacker: attackerSetting[],
         claimer: claimerSetting[],
-        extraCarrier: extraCarrierSetting[]
+        extraCarrier: extraCarrierSetting[],
+        outwardsEnergyMiner: outwardsEnergyMinerSetting[],
+        ultraUpgrader: ultraUpgraderSetting[]
     },
     time_recorder: {
         spawnName: number;
     },
+    getMission: getMission,
+    consoleTest: {
+        x: string
+    }
 }
 
 
@@ -89,6 +126,7 @@ declare namespace NodeJS {
         log: any,
         bpg: Function,
         GenedGetBodyparts: object[],
-        GenedBodypartsList: BodyPartConstant[]
+        GenedBodypartsList: BodyPartConstant[],
+        helpCall: Function
     }
 }

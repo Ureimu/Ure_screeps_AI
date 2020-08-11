@@ -100,8 +100,11 @@ let temporary = {
 
     workSetting: function () {
         //基础设置,不用更改
+
         if (!Memory.creepWorkSetting) {
-            Memory.creepWorkSetting = {};
+            //@ts-ignore
+            Memory.creepWorkSetting = {
+            };
         }
 
         for(let i=0,j=Memory.c_k_info.creepRoleListGivenOutOutwards.length;i<j;i++) {

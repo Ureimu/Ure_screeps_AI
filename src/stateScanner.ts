@@ -2,7 +2,7 @@
  * 全局统计信息扫描器
  * 负责搜集关于 cpu、memory、GCL、GPL 的相关信息
  */
-
+//@ts-nocheck
 let stateScanner = {
     run: function () {
         // 每 20 tick 运行一次

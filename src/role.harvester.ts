@@ -48,7 +48,6 @@ let roleHarvester = {
         let storage_e = (creep.room.storage && creep.room.storage.store[RESOURCE_ENERGY] > 0) ? creep.room.storage : null; //有能量的storage (energy)
         let storage_ne = (creep.room.storage && creep.room.storage.store[RESOURCE_ENERGY] == 0) ? creep.room.storage : null; //没能量的storage (no energy)
         let storage_nfe = (creep.room.storage && creep.room.storage.store.getFreeCapacity(RESOURCE_ENERGY) > 0) ? creep.room.storage : null; //有空余容量的storage (not full energy)
-        let sources = creep.room.find(FIND_SOURCES);
 
         if ((!targets.length && !targets1.length && !targets3.length && !storage_nfe)) {
             /*
@@ -65,14 +64,15 @@ let roleHarvester = {
             creep.pickup(target);
         }
         if (creep.memory.harvesting) { //采集能量资源
+            let do_withdraw = -1;
             if (targets.length > 0 &&
                 (targets2.length > 0 || storage_e)) {
                 //在需要给出生点补充能量资源时，优先使用大容器的能量资源，之后再使用容器的能量资源
-                let do_withdraw = 1;
+                do_withdraw = 1;
             } else if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) { //其次再采集能量资源
-                let do_withdraw = 0;
+                do_withdraw = 0;
             } else {
-                let do_withdraw = 2;
+                do_withdraw = 2;
             }
 
             if (do_withdraw == 1 && (storage_ne || !creep.room.storage)) { //如果大容器能量不足，优先将容器的能量转入出生点

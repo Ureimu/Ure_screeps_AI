@@ -37,7 +37,7 @@ let roleRenovator = {
 					roleBuilder.run(creep);
 				}
 			} else if (creep.memory.lastRenovate) {
-				target_x = Game.getObjectById(creep.memory.lastRenovate);
+				let target_x = <AnyStructure>Game.getObjectById(creep.memory.lastRenovate);
 				if (creep.repair(target_x) == ERR_NOT_IN_RANGE) {
 					creep.moveTo(target_x, {
 						visualizePathStyle: {

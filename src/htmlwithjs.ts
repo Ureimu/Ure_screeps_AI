@@ -61,7 +61,9 @@ let htmj = {
 
     meset:function(stringIn,title){
         if(!Memory.consoleTest){
-            Memory.consoleTest={};
+            Memory.consoleTest={
+                x: ''
+            };
         }
         this.body(stringIn);
         this.head(Memory.consoleTest.x,title);
