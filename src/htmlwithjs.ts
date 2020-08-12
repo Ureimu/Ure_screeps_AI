@@ -26,28 +26,28 @@
 </body>\
 </html>'
 */
+{
+    let htmj = {
+        set: function (stringIn) {
+            let a = '<!DOCTYPE html><html>';
+            let b = '</html>';
+            let stringOut = a + stringIn + b;
+            Memory.consoleTest.x = stringOut;
+        },
 
-let htmj = {
-    set:function(stringIn){
-        let a='<!DOCTYPE html><html>';
-        let b='</html>';
-        let stringOut=a+stringIn+b;
-        Memory.consoleTest.x=stringOut;
-    },
+        head: function (stringIn, title) {
+            let a = '<head><meta charset="utf-8"><title>' + title + '</title></head>';
+            let stringOut = a + stringIn;
+            Memory.consoleTest.x = stringOut;
+        },
 
-    head:function(stringIn,title){
-        let a='<head><meta charset="utf-8"><title>'+title+'</title></head>';
-        let stringOut=a+stringIn;
-        Memory.consoleTest.x=stringOut;
-    },
+        body: function (stringIn) {
+            let a = '<body>' + stringIn + '</body>';
+            Memory.consoleTest.x = a;
+        },
 
-    body:function(stringIn){
-        let a='<body>'+stringIn+'</body>';
-        Memory.consoleTest.x=a;
-    },
-
-    css:function(stringIn){
-        let a='<style type="text/css">\
+        css: function (stringIn) {
+            let a = '<style type="text/css">\
         h1{color:red;}\
         p{\
             color:black;\
@@ -55,21 +55,22 @@ let htmj = {
             font-size:20px;\
             background-color:##99ccff;\
         }\
-        </style>'+stringIn;
-        Memory.consoleTest.x=a;
-    },
+        </style>'+ stringIn;
+            Memory.consoleTest.x = a;
+        },
 
-    meset:function(stringIn,title){
-        if(!Memory.consoleTest){
-            Memory.consoleTest={
-                x: ''
-            };
+        meset: function (stringIn, title) {
+            if (!Memory.consoleTest) {
+                Memory.consoleTest = {
+                    x: ''
+                };
+            }
+            this.body(stringIn);
+            this.head(Memory.consoleTest.x, title);
+            this.css(Memory.consoleTest.x);
+            this.set(Memory.consoleTest.x);
         }
-        this.body(stringIn);
-        this.head(Memory.consoleTest.x,title);
-        this.css(Memory.consoleTest.x);
-        this.set(Memory.consoleTest.x);
     }
-}
 
-module.exports=htmj;
+    module.exports = htmj;
+}

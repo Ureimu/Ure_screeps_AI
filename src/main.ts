@@ -1,24 +1,24 @@
 let create_and_keep_screeps = require('c_k_screeps');
-let stateScanner = require('stateScanner');
-let tower_sp = require('tower');
+const stateScanner = require('stateScanner');
+const tower_sp = require('tower');
 let c_k_info = require('c_k_info');
-let temporary = require('temporarySetting');
-let link_sp = require('link');
-let getMission = require('getMission');
-let htmj = require('htmlwithjs');
+const temporary = require('temporarySetting');
+const link_sp = require('link');
+const getMission = require('getMission');
+const htmj = require('htmlwithjs');
 // 上面是非角色模块，下面是常驻角色模块
-let roleHarvester = require('role.harvester');
-let roleUpgrader = require('role.upgrader');
-let roleBuilder = require('role.builder');
-let roleRenovator = require('role.renovator');
-let roleCarrier = require('role.carrier');
-let roleEnergyMiner = require('role.energyMiner');
+const roleHarvester = require('role.harvester');
+const roleUpgrader = require('role.upgrader');
+const roleBuilder = require('role.builder');
+const roleRenovator = require('role.renovator');
+const roleCarrier = require('role.carrier');
+const roleEnergyMiner = require('role.energyMiner');
 //上面是常驻角色模块，下面是非常驻角色模块
-let roleExtraCarrier = require('role.extraCarrier');
-let roleAttacker = require('role.attacker');
-let roleOutwardsEnengyMiner = require('role.outwardsEnergyMiner');
-let roleClaimer = require('role.claimer');
-let roleUltraUpgrader = require('role.ultraUpgrader');
+const roleExtraCarrier = require('role.extraCarrier');
+const roleAttacker = require('role.attacker');
+const roleOutwardsEnengyMiner = require('role.outwardsEnergyMiner');
+const roleClaimer = require('role.claimer');
+const roleUltraUpgrader = require('role.ultraUpgrader');
 
 module.exports.loop = function () {
 

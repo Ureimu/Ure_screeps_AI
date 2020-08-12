@@ -1,4 +1,4 @@
-let link_sp = {
+let link_sp_m = {
     run: function () {
         let linkFrom: StructureLink[] = [
             Game.getObjectById('5f0cf8a0f326cd3e1ebb9232'),
@@ -16,4 +16,4 @@ let link_sp = {
     }
 };
 
-module.exports = link_sp;
+module.exports = link_sp_m;

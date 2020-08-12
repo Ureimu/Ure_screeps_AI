@@ -1,7 +1,7 @@
 /**
  * 全局统计信息扫描器
  * 负责搜集关于creep的相关信息
- */
+ */{
 let inf = {
     creepNum: function () {
         if (!Memory.creepNum) {
@@ -33,3 +33,4 @@ let inf = {
 };
 
 module.exports = inf;
+ }

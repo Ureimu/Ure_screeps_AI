@@ -1,1 +1,3 @@
 global.bpg([{move:5}])
+/help
+bpg([{move:24}])

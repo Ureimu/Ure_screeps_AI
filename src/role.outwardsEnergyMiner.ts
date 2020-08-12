@@ -1,4 +1,5 @@
-ckso = require('c_k_screeps_outwards');
+{
+let ckso = require('c_k_screeps_outwards');
 
 let roleOutwardsEnergyMiner = {
 
@@ -119,3 +120,4 @@ let roleOutwardsEnergyMiner = {
 };
 
 module.exports = roleOutwardsEnergyMiner;
+}

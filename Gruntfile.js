@@ -1,11 +1,13 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     // 从 npm 载入任务
-    grunt.loadNpmTasks("grunt-ts")
+    grunt.loadNpmTasks("grunt-ts");
+    grunt.loadNpmTasks('grunt-screeps');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     // 配置任务
     grunt.initConfig({
         // typescripts 编译任务
         'ts': {
-            default : {
+            default: {
                 options: {
                     sourceMap: false,
                     // 编译到的目标版本
@@ -17,8 +19,25 @@ module.exports = function(grunt) {
                 // 编译好的文件的输出目录
                 outDir: 'dist/'
             }
+        },
+        screeps: {
+            options: {
+                email: 'YOUR_EMAIL',
+                password: 'YOUR_PASSWORD',
+                branch: 'default',
+                ptr: false
+            },
+            dist: {
+                src: ['dist/*.{js,wasm}'],
+            }
+        },
+        // 代码变更监听任务
+        watch: {
+            files: "dist/*.*",
+            tasks: ["screeps"]
         }
     })
     // 将 ts 编译任务注册到默认执行命令
-    grunt.registerTask('default',  [ 'ts' ])
+    grunt.registerTask('default', ['ts']);
+    grunt.registerTask('auto', ["watch"]);
 }
