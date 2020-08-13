@@ -1,7 +1,7 @@
 let roleUpgrader_m = {
 
     /** @param {Creep} creep **/
-    run: function (creep) {
+    run: function (creep: Creep) {
 
         if (creep.memory.upgrading && creep.store[RESOURCE_ENERGY] == 0) {
             creep.memory.upgrading = false;
@@ -30,7 +30,7 @@ let roleUpgrader_m = {
                     return Source.energy > 0;
                 }
             });
-            let targets2 = creep.room.find(FIND_STRUCTURES, { //标明房间内有装能量的容器
+            let targets2 = <StructureContainer[]>creep.room.find(FIND_STRUCTURES, { //标明房间内有装能量的容器
                 filter: (i) => i.structureType == STRUCTURE_CONTAINER &&
                     i.store[RESOURCE_ENERGY] > 0
             });

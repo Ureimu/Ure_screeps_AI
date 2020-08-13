@@ -1,4 +1,4 @@
-global.global.bpg = function (bodyparts) {
+global.bpg = function (bodyparts) {
     /**
      *一个bodyparts生成器。
     具体使用示例：
@@ -10,7 +10,7 @@ global.global.bpg = function (bodyparts) {
     */
     let bodypartsList = [];
     if (!!global.GenedGetBodyparts && bodyparts == global.GenedGetBodyparts) return global.GenedBodypartsList; //如果上一次的和这一次的设置一样，则跳过。
-    let list0 = ['move', 'work', 'carry', 'attack', 'ranged_attack', 'heal', 'claim', 'tough'];
+    let list0: BodyPartConstant[] = ['move', 'work', 'carry', 'attack', 'ranged_attack', 'heal', 'claim', 'tough'];
     for (let i = 0, j = bodyparts.length; i < j; i++) {
         for (let key in bodyparts[i]) {
             for (let name of list0) {

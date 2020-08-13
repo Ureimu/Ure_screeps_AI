@@ -3,7 +3,7 @@ interface CreepMemory {
     role: string,
     spawnName: string,
     targetRoom?: string,
-    missionNumber?: string,
+    missionNumber?: number,
     attacking?: {
         targets: string,
         flagToStay: string
@@ -13,6 +13,12 @@ interface CreepMemory {
         carryTo: Id<AnyStoreStructure>,
         carryThings: ResourceConstant
     },
+    claiming?: {
+        doReserve: boolean
+    },
+    upgrading?: boolean,
+    building?: boolean,
+    harvesting?: boolean
 }
 //下面是几个任务类的定义
 interface attackerSetting {
@@ -130,3 +136,6 @@ declare namespace NodeJS {
         helpCall: Function
     }
 }
+
+
+//test

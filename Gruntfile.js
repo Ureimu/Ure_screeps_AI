@@ -22,8 +22,8 @@ module.exports = function (grunt) {
         },
         screeps: {
             options: {
-                email: 'YOUR_EMAIL',
-                password: 'YOUR_PASSWORD',
+                email: 'steam1090693441@163.com',
+                password: '1Q23456789+.',
                 branch: 'default',
                 ptr: false
             },
