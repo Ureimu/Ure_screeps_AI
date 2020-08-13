@@ -11,5 +11,6 @@ declare namespace NodeJS {
         bpg: Function,
         GenedGetBodyparts: Array<bpgGene>,
         GenedBodypartsList: BodyPartConstant[],
+        prototypeMounted: boolean,
     }
 }

@@ -27,7 +27,7 @@ export function globalFunctionRegister(): void {//在global上写入全局函数
             global.GenedBodypartsList = bodypartsList;
             return bodypartsList;
         }
-        console.log('global reseted,function registerd successfully');
+        console.log('[global] 重新挂载全局函数');
     }
     else {
         return
