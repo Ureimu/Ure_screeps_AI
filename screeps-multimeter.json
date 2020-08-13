@@ -1,5 +1,9 @@
 {
   "shard": "shard3",
   "token": "5b5a7507-18e3-45a2-a275-0812071e5399",
-  "plugins": []
+  "plugins": [],
+  "aliases": {
+    "sMem": "json.stirify(Memory)",
+    "creepnum": "/watch status _.keys(Game.creeps).length"
+  }
 }

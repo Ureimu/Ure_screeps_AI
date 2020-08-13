@@ -24,7 +24,7 @@ module.exports = function (grunt) {
             options: {
                 email: 'steam1090693441@163.com',
                 password: '1Q23456789+.',
-                branch: 'default',
+                branch: 're',
                 ptr: false
             },
             dist: {

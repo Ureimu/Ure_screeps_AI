@@ -1,3 +1,16 @@
 global.bpg([{move:5}])
 /help
 bpg([{move:24}])
+/alias sMem json.stirify(Memory)
+/sMem
+/watch status _.keys(Game.creeps).length
+/watch status _.keys(Game.creeps).length
+/alias /watch status _.keys(Game.creeps).length
+//watch
+/alias creepnum /watch status _.keys(Game.creeps).length
+creepnum
+/creepnum
+/creepnum
+Memory
+1==2
+/exit
