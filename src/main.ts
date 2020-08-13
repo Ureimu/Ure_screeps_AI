@@ -1,6 +1,6 @@
-import { spawn } from "child_process"
-import { worker } from "cluster"
+import {globalFunctionRegister} from "./globalFunction"
 
 module.exports.loop = function () {
-    Game.spawns['Spawn1'].spawnCreep(['move','carry','work'],'harv'+1);
+    globalFunctionRegister();
+    Game.spawns['Spawn1'].spawnCreep(global.bpg([{'work':1,'move':1,'carry':1}]),'harv'+1);
 }

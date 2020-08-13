@@ -131,7 +131,6 @@ declare namespace NodeJS {
     interface Global {
         log: any,
         bpg: Function,
-        GenedGetBodyparts: object[],
         GenedBodypartsList: BodyPartConstant[],
         helpCall: Function
     }
