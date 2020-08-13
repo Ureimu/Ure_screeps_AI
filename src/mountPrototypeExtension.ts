@@ -1,4 +1,5 @@
 import {mountCreepEx} from './mount.creep'
+import {mountSourceEx} from './mount.source'
 
 // 挂载所有的额外属性和方法
 export function mountPrototypeExtension():void {
@@ -7,5 +8,6 @@ export function mountPrototypeExtension():void {
         global.prototypeMounted = true;
         
         mountCreepEx();
+        mountSourceEx();
     }
 }
