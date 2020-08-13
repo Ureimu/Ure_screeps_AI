@@ -2,7 +2,7 @@
     let roleEnergyMiner = {
 
         /** @param {Creep} creep **/
-        run: function (creep) {
+        run: function (creep: Creep) {
             if (!creep.memory.harvesting && creep.store[RESOURCE_ENERGY] < 50) {
                 creep.memory.harvesting = true;
                 creep.say('🔄 harvest');

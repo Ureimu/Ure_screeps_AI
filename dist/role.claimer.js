@@ -83,8 +83,9 @@
         },
         creepMemory: function (creep, doReserve) {
             if (!creep.memory.claiming) {
-                creep.memory.claiming = {};
-                creep.memory.claiming.doReserve = doReserve;
+                creep.memory.claiming = {
+                    doReserve: doReserve
+                };
             }
         },
         workSetting: function (i, doReserve, spawnName, bodyparts, targetRoom, spawnNumber) {

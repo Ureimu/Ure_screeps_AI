@@ -18,9 +18,9 @@
         /**
          *该函数是用来给creep写入记忆的，在新增角色任务时需要在该函数增加对应任务的memory写入代码。
          *
-         * @param {*} creep
+         * @param {Creep} creep
          */
-        run: function (creep) {
+        run: function (creep: Creep):void {
 
             /**
              *一个检测creep角色名是否和参数相同的函数。
@@ -28,7 +28,7 @@
              * @param {*} name
              * @returns
              */
-            function ifName(name) {
+            function ifName(name: any) {
                 if (creep.memory.role == name) {
                     return true;
                 } else {

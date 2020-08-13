@@ -8,9 +8,9 @@
         /**
          *角色：claimer
          *
-         * @param {creep} creep claimer
+         * @param {Creep} creep claimer
          */
-        run: function (creep) {
+        run: function (creep: Creep) {
             //Game.spawns['Spawn1'].spawnCreep(Memory.c_k_info.bodypartSetting[0], 'Claimer'+Game.time, {memory: {role: 'claimer', roomClaim: 'E35S21', doReserve: true}}); 
             //请手动输入代码到console,自己修改需要claim的room,出生点,注意检查是不是忘了加CLAIM部件。
             let roomToClaim = Game.rooms[creep.memory.targetRoom];
@@ -38,17 +38,17 @@
                     creep.say('🚧 build');
                 }
 
-                let targetsSpawn_x = creep.room.find(FIND_STRUCTURES, { //标明房间内未装满的扩展和出生点
+                let targetsSpawn_x = <(StructureSpawn|StructureExtension)[]>creep.room.find(FIND_STRUCTURES, { //标明房间内未装满的扩展和出生点
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_EXTENSION ||
                             structure.structureType == STRUCTURE_SPAWN) &&
                             structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
                     }
                 });
-                let targetsSpawn = creep.pos.findClosestByRange(targetsSpawn_x);
+                let targetsSpawn = <StructureSpawn|StructureExtension>creep.pos.findClosestByRange(targetsSpawn_x);
 
                 if (creep.memory.building) {
-                    let targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+                    let targets = <ConstructionSite[]>creep.room.find(FIND_CONSTRUCTION_SITES);
                     if (targetsSpawn_x.length) {
                         if (creep.transfer(targetsSpawn, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                             creep.moveTo(targetsSpawn, {
@@ -71,7 +71,7 @@
                         roleUpgrader.run(creep);
                     }
                 } else {
-                    let sources = creep.room.find(FIND_SOURCES);
+                    let sources: Source[] = creep.room.find(FIND_SOURCES);
 
                     if (sources[1].energy > 0) {
                         if (creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
@@ -86,7 +86,7 @@
             }
         },
 
-        keep: function (missionNumber) {
+        keep: function (missionNumber: number) {
             ckso.trySpawn('claimer',
                 Memory.creepWorkSetting.claimer[missionNumber].bodyparts,
                 Memory.creepWorkSetting.claimer[missionNumber].spawnName,
@@ -98,14 +98,15 @@
             )
         },
 
-        creepMemory: function (creep, doReserve) {
+        creepMemory: function (creep: Creep, doReserve: boolean) {
             if (!creep.memory.claiming) {
-                creep.memory.claiming = {};
-                creep.memory.claiming.doReserve = doReserve;
+                creep.memory.claiming = {
+                    doReserve: doReserve
+                };
             }
         },
 
-        workSetting: function (i, doReserve, spawnName, bodyparts, targetRoom, spawnNumber) {
+        workSetting: function (i: string | number, doReserve: boolean, spawnName: string, bodyparts: any, targetRoom: any, spawnNumber: any) {
             Memory.creepWorkSetting.claimer[i] = {
                 'doReserve': doReserve,
                 'spawnName': spawnName,
@@ -116,7 +117,7 @@
             };
         },
 
-        workSettingLog: function (i, logString) {
+        workSettingLog: function (i: number, logString: string) {
             if (!Memory.creepWorkSetting.claimer[i].logString) {
                 Memory.creepWorkSetting.claimer[i].logString = logString;
             }
