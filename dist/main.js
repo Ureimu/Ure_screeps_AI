@@ -9,6 +9,7 @@ module.exports.loop = function () {
     mountGlobalFunction_1.globalFunctionRegister();
     mountPrototypeExtension_1.mountPrototypeExtension();
     Game.spawns['Spawn1'].spawnCreep(global.bpg([{ 'work': 1, 'move': 1, 'carry': 1 }]), 'harv' + 1);
+    Game.spawns['Spawn1'].memory;
     actionCounter.save(1500);
     if (!global.detail)
         global.detail = actionCounter.singleTick;

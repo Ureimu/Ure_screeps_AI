@@ -12,4 +12,6 @@ var creepExtension = {
     },
     fillTower: function () {
     },
+    harvestEnergy: function () {
+    }
 };
