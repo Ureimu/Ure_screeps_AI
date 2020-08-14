@@ -23,7 +23,7 @@ interface SourceMemory {
 
 interface Source {
     /**
-     * 返回周围正方形的不是wall的地形数量
+     * 返回周围正方形区域的不是wall的地形数量
      *
      * @returns {number} 非wall的空格个数
      */
