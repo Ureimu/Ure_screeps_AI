@@ -17,5 +17,8 @@ const creepExtension = {
     fillTower() {
         // 代码实现...
     },
+    harvestEnergy() {
+        
+    }
     // 其他更多自定义拓展
 }

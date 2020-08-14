@@ -1,5 +1,6 @@
-import {mountCreepEx} from './mount.creep'
-import {mountSourceEx} from './mount.source'
+import {mountRoomPositionEx} from './mount.RoomPoition'
+import {mountCreepEx} from './mount.Creep'
+import {mountSourceEx} from './mount.Source'
 
 // 挂载所有的额外属性和方法
 export function mountPrototypeExtension():void {
@@ -7,6 +8,7 @@ export function mountPrototypeExtension():void {
         console.log('[mount] 重新挂载拓展')
         global.prototypeMounted = true;
         
+        mountRoomPositionEx();
         mountCreepEx();
         mountSourceEx();
     }
